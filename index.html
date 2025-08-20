@@ -5,6 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Travel Layout</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- Hamburger Menu CSS --- */
+    .menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-icon span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #2d3e50;
+      border-radius: 2px;
+    }
+
+    /* Mobile: show hamburger, hide menu */
+    @media (max-width: 600px) {
+      .menu-icon {
+        display: flex;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .menu-toggle:checked ~ ul {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -12,6 +50,16 @@
       Explore the World
     </header>
     <nav>
+      <!-- Hidden checkbox for toggle -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <!-- Hamburger icon -->
+      <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- Navigation links -->
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Destinations</a></li>
